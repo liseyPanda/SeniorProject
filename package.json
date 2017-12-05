@@ -1,0 +1,28 @@
+{
+  "name": "senior-project-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raheem137/Senior-Project-.git"
+  },
+  "author": "Raheem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raheem137/Senior-Project-/issues"
+  },
+  "homepage": "https://github.com/Raheem137/Senior-Project-#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-init": "^0.3.2"
+  }
+}
