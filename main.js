@@ -1,8 +1,9 @@
+//==============jQuery functions for simulation===============//
 $(document).ready(function() {
-  // Set Variables we're working with
-  var ball = $('#ball'),
-      g = -9.80665, //Gravity
-      abs_g = Math.abs(g),
+  //Initialize all variables needed for calculations
+  var rocket = $('#rocket'),
+      gravity = -9.80665,
+      abs_g = Math.abs(gravity),
       angle = 0,
       v = 0, //Initial Velocity
       t = 0,
@@ -10,8 +11,8 @@ $(document).ready(function() {
       y = 0; // Y Position
 
   // Function to Move the Ball with CSS positioning
-  function moveBall(x, y) {
-    ball.css({
+  function moveRocket(x, y) {
+    rocket.css({
       left: x,
       bottom: y
     });
@@ -23,10 +24,10 @@ $(document).ready(function() {
   }
 
   // Function to Calculate Y
-  function findY(g, angle, v, t) {
+  function findY(gravity, angle, v, t) {
     var t_squared = Math.pow(t,2),
         sin_angle = Math.sin(toRadians(angle));
-    return Math.round( (sin_angle*v*t) + ((0.5)*g*t_squared) );
+    return Math.round( (sin_angle*v*t) + ((0.5)*gravity*t_squared) );
   }
 
   // Function to Calculate X
@@ -36,36 +37,36 @@ $(document).ready(function() {
   }
 
   // Function to Calculate Max Time
-  function maxTime(angle, v, g) {
+  function maxTime(angle, v, gravity) {
     var sin_angle = Math.sin(toRadians(angle));
     return ((sin_angle*v)/abs_g)*2;
   }
 
   function simulate(v, angle) {
     // Reset Everything
-    $('.dot').remove();
-    ball.css({
+    $('.line').remove();
+    rocket.css({
       left: 0,
       right: 0
     });
 
-    var max_time = maxTime(angle, v, g),
+    var max_time = maxTime(angle, v, gravity),
         max_time_100 = (max_time/100);
 
     function calculatePosition(i) {
       t = i*(max_time_100);
       console.log("After " + t + " seconds:");
       x = findX(angle, v, t);
-      y = findY(g, angle, v, t);
+      y = findY(gravity, angle, v, t);
 
       console.log(x);
       console.log(y);
 
       console.log("");
 
-      $('#graph').append('<span class="dot" style="left:' + x + 'px; bottom:' + y + 'px;"></span>');
+      $('#graph').append('<span class="line" style="left:' + x + 'px; bottom:' + y + 'px;"></span>');
 
-      moveBall(x, y);
+      moveRocket(x, y);
 
       i++;
     }
@@ -90,13 +91,33 @@ $(document).ready(function() {
 
     setIntervalX(function () {}, (max_time*10), 101);
   }
+//===========Velocity Slide Bar=============//
+   var slider = document.getElementById("myVelocity");
+   var output = document.getElementById("v_output");
+   output.innerHTML = slider.value;
+
+   slider.oninput = function() {
+   output.innerHTML = this.value;
+   console.log(output.innerHTML);
+ }
+//===========Angle of Trajectory Slide Bar=============//
+  var slider2 = document.getElementById("myAngle");
+  var output2 = document.getElementById("ang_output");
+  output2.innerHTML = slider2.value;
+
+  slider2.oninput = function() {
+    output2.innerHTML = this.value;
+    console.log(output2.innerHTML);
+  }
+
 
   $('#simulate').click(function(event) {
     event.preventDefault();
 
-    var v_input = $('#v-input').val();
-    var angle_input = $('#angle-input').val();
+    var velocity_input = output.innerHTML;
 
-    simulate(v_input, angle_input);
+    var angle_input = output2.innerHTML;
+
+    simulate(velocity_input, angle_input);
   });
 });

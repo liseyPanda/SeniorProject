@@ -12,7 +12,8 @@
     <!-- Bootstrap needs jquery -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
-		<link href="../CSS/style.css" rel="stylesheet" type="text/css" />
+		<link href="../CSS/sim.css" rel="stylesheet" type="text/css"/>
+		<link href="../CSS/style.css" rel="stylesheet" type="text/css"/>
 		<script src="../main.js"></script>
 
 	</head>
@@ -41,15 +42,15 @@
     						<li><a href="About.html">About</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li class="dropdown-header">Nav header</li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
                 </li>
               </ul>
             </div>
@@ -57,54 +58,46 @@
     </div>
 		<div class="title"><h1>Simulation</h1></div>
 		<div id="wrapper">
-      <div class="form-wrap">
-          <form id="form">
-            <div class="input-box">
-              Initial Velocity:
-              <input type="text" id="v-input">
-              <span class="hint">enter a value between 0 to 100 m/s</span>
-            </div>
-            <div class="input-box">
-              Angle:
-              <input type="text" id="angle-input">
-              <span class="hint">enter a value between 0&deg; and 90&deg;</span>
-            </div>
+      <div class="row">
+				<div class="col-sm-3">
+							<div class="slidecontainer">
+								<div class="row slide">
+									<div class="col-sm-5">
+									Initial Velocity:
+								</div>
+									<div class="col-sm-6 col-sm-offset-3" >
+  							   <input type="range" id="myVelocity" min="1" max="100" value="50" class="slider">
+  								 <p>Value: <span id="v_output"></span></p>
+								  </div>
+							  </div>
+							</div>
+							<div class="slidecontainer">
+								<div class="row slide">
+									<div class="col-sm-5">
+									Angle:
+								</div>
+									<div class="col-sm-6 col-sm-offset-3">
+  							   <input type="range" id="myAngle" min="0" max="90" value="0" class="slider">
+  								 <p>Value: <span id="ang_output"></span></p>
+								  </div>
+							  </div>
+							</div>
 						<br>
-            <button id="simulate">Simulate!</button>
-						<br>
-          </form>
-      </div>
-      <div class="graph-wrap">
-        <div id="graph">
-          <div id="ball"></div>
-        </div>
-      </div>
-    </div>
-
-		<input type="range" name="length" min="0" max="100" value="0" step=".5" onchange="sliderChange(this.value)" /><br/><br />
-
-		Length = <span id="sliderStatus">0</span><br/><br />
-
-		<input type="range" name="weight" min="0" max="100" value="0" step=".5" onchange="sliderChange2(this.value)" /><br/><br />
-
-		Weight = <span id="sliderStatus2">0</span><br/><br />
-
-		<script type="text/javascript">
-
-			function sliderChange(value){
-			document.getElementById('sliderStatus').innerHTML = value;
-			}
-
-			function sliderChange2(value){
-				document.getElementById('sliderStatus2').innerHTML = value;
-			}
-
-		</script>
-
-		<button onclick= "" >Submit</button>
-
-
+						<div class="row">
+							<div class="col-sm-5 col-sm-offset-4">
+								<button type="button" class="btn btn-warning" id="simulate">Simulate!</button>
+							</div>
+						</div>
+			  </div>
+				<div class="col-sm-6">
+					<div class="graph-wrap">
+						<div id="graph">
+							<div id="rocket"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
-
 
 </html>
