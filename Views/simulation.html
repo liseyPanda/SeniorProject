@@ -57,47 +57,71 @@
         </nav>
     </div>
 		<div class="title"><h1>Simulation</h1></div>
-		<div id="wrapper">
-      <div class="row">
-				<div class="col-sm-3">
-							<div class="slidecontainer">
-								<div class="row slide">
-									<div class="col-sm-5">
-									Initial Velocity:
-								</div>
-									<div class="col-sm-6 col-sm-offset-3" >
-  							   <input type="range" id="myVelocity" min="1" max="100" value="50" class="slider">
-  								 <p>Value: <span id="v_output"></span></p>
-								  </div>
-							  </div>
-							</div>
-							<div class="slidecontainer">
-								<div class="row slide">
-									<div class="col-sm-5">
-									Angle:
-								</div>
-									<div class="col-sm-6 col-sm-offset-3">
-  							   <input type="range" id="myAngle" min="0" max="90" value="0" class="slider">
-  								 <p>Value: <span id="ang_output"></span></p>
-								  </div>
-							  </div>
-							</div>
-						<br>
+		<!-- Marketing messaging and items
+		================================================== -->
+		<!-- Wrap the rest of the page in another container to center all the content. -->
+
+		<div class="container marketing">
+			<div class="row item">
+					<div id="wrapper">
 						<div class="row">
-							<div class="col-sm-5 col-sm-offset-4">
-								<button type="button" class="btn btn-warning" id="simulate">Simulate!</button>
+							<div class="col-sm-3">
+								<h2> Projectile Motion</h2>
+										<div class="slidecontainer">
+											<div class="row slide">
+												<div class="col-sm-6">
+												Initial Velocity:
+											</div>
+												<div class="col-sm-6 col-sm-offset-3" >
+												 <input type="range" id="myVelocity" min="1" max="100" value="50" class="slider">
+												 <p>Value: <span id="v_output"></span></p>
+												</div>
+											</div>
+										</div>
+										<div class="slidecontainer">
+											<div class="row slide">
+												<div class="col-sm-5">
+												Angle:
+											</div>
+												<div class="col-sm-6 col-sm-offset-3">
+												 <input type="range" id="myAngle" min="0" max="90" value="0" class="slider">
+												 <p>Value: <span id="ang_output"></span></p>
+												</div>
+											</div>
+										</div>
+									<br>
+									<div class="row">
+										<div class="col-sm-5 col-sm-offset-4">
+											<button type="button" class="btn btn-warning" id="simulate">Simulate!</button>
+										</div>
+									</div>
 							</div>
-						</div>
-			  </div>
-				<div class="col-sm-6">
-					<div class="graph-wrap">
-						<div id="graph">
-							<div id="rocket"></div>
+							<div class="col-sm-6">
+								<div class="map-wrap">
+									<div id="map">
+										<div id="rocket"></div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
 			</div>
-		</div>
+
+			<hr class="item-divider">
+			<div class="row">
+
+			<footer>
+
+				<p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+				<p>Department of Mechanical & Aerospace Engineering <br>
+					 University of Florida <br>
+					 231 MAE-A, P. O. Box 116250 <br>
+					 Gainesville, FL 32611 <br>
+					 P: (352) 392-0961 | F: (352) 392-7303</p>
+			</footer>
+			<div>
+		</div><!-- /.container -->
+
 	</body>
 
 </html>

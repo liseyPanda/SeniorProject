@@ -64,7 +64,7 @@ $(document).ready(function() {
 
       console.log("");
 
-      $('#graph').append('<span class="line" style="left:' + x + 'px; bottom:' + y + 'px;"></span>');
+      $('#map').append('<span class="line" style="left:' + x + 'px; bottom:' + y + 'px;"></span>');
 
       moveRocket(x, y);
 
