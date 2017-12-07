@@ -24,5 +24,8 @@
     "grunt-contrib-uglify": "^3.2.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-init": "^0.3.2"
+  },
+  "devDependencies": {
+    "grunt-contrib-qunit": "^2.0.0"
   }
 }
