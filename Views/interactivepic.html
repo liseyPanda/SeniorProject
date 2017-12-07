@@ -12,6 +12,7 @@
     <!-- Bootstrap needs jquery -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../ImageMapster-master/dist/jquery.imagemapster.js"></script>
 		<link href="../CSS/style.css" rel="stylesheet" type="text/css" />
 	</head>
 
@@ -57,8 +58,8 @@
 
 		<div class="container">
 			<map name="top">
-				<area shape="poly" coords="67,269,95,248,151,239,199,213,215,307,156,295,106,308,71,297" class="part">
-				<area shape="rect" coords="201,179,319,366" class="part" >
+				<area href="#" shape="poly" coords="67,269,95,248,151,239,199,213,215,307,156,295,106,308,71,297" class="part">
+				<area href="#" shape="rect" coords="201,179,319,366" class="part" >
 				<!--	<area shape="circle" coords="centerx,centery,radius" href="">  -->
 			</map>
 
@@ -67,7 +68,7 @@
 				<p>This is the pop up window</p>
 			</div>
 
-			<img src = "http://www.ssbilliards.com/forsale/images/pin_parts/a13/rocket.jpg" usemap="#top" class="info">
+			<img src = "http://www.ssbilliards.com/forsale/images/pin_parts/a13/rocket.jpg" usemap="#top" class="info" id="outline">
 
 		</div>
 
@@ -95,6 +96,49 @@
 					$(".info").fadeIn('slow');
 				})
 			});
+
+
+
+
+
+			 var inArea,
+            map = $('#outline'),
+
+            single_opts = {
+                fillColor: '000000',
+                fillOpacity: 0,
+                stroke: true,
+                strokeColor: 'ff0000',
+                strokeWidth: 2
+            },
+          
+            initial_opts = {
+             isSelectable: false,
+                onMouseover: function () {
+                    inArea = true;
+                
+                },
+                onMouseout: function () {
+                    inArea = false;
+                   
+                }
+            };
+        opts = $.extend({},  initial_opts, single_opts);
+
+
+        map.mapster('unbind')
+            .mapster(opts)
+            .bind('mouseover', function () {
+                if (!inArea) {
+                
+                       map.mapster('set', true, 'all')
+                       .mapster('set_options', single_opts);
+                }
+            }).bind('mouseout', function () {
+                if (!inArea) {
+                    map.mapster('set', false, 'all');
+                }
+            });
 		</script>
 
 	</body>
